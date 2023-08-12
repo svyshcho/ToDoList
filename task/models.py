@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Tag(models.Model):
@@ -17,3 +18,8 @@ class Task(models.Model):
 
     def __str__(self):
         return self.content
+
+    class Meta:
+        ordering = ["is_done", "-datetime"]
+        verbose_name = "task"
+        verbose_name_plural = "tasks"
